@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Welcome to</div>
+                <div class="text-2">Madurai Hospitals</div>
+                <div class="text-3">Book appointments anywhere @ anytime!</div>
+                <a href="{{ url_for('search') }}">Book Now!</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="teams" id="teams">
+    <div class="max-width">
+        <center>
+            <div class="carousel owl-carousel">
+                <div class="card" onclick="window.location.href='{{ url_for('doctor_login') }}';">
+                    <div class="box">
+                        <img src="{{ url_for('static', filename='images/patient.jpg') }}" alt="">
+                        <div class="text">Login - Doctor</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box" onclick="window.location.href='{{ url_for('doctor_register') }}';">
+                        <img src="{{ url_for('static', filename='images/doctor.jpg') }}" alt="">
+                        <div class="text">Register - Doctor</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+
+            </div>
+        </center>
+    </div>
+</section>
+
+{% endblock content %}
+

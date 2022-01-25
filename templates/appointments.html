@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<section>
+<div class="max-width">
+    <div class="search-content">
+    <center>
+        <table class="appt">
+            <tr>
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Appointment Date</th>
+                <th>Temporary Time</th>
+                <th>Fixed Time</th>
+                <th>Submit</th>
+            </tr>
+            {% for appointment in appointments %}
+            <tr>
+                {% if not appointment.appt_time: %}
+                    <form action="{{ url_for('appointments') }}" method="post">
+                    <td><input type="text" name="booking_id" value="{{appointment.booking_id}}" style="border: 0px; outline: 0px;" size="2" readonly></td>
+                    <td>{{appointment.patient_name}}</td>
+                    <td>{{appointment.patient_age}}</td>
+                    <td>{{appointment.appt_date}}</td>
+                    <td>{{appointment.temp_time}}</td>
+                    <td><input type="time" name="time" required></td>
+                    <td><input type="submit" value="Book" class="apptBook"></td>
+                    </form>
+                {% else: %}
+                    <td>{{appointment.booking_id}}</td>
+                    <td>{{appointment.patient_name}}</td>
+                    <td>{{appointment.patient_age}}</td>
+                    <td>{{appointment.appt_date}}</td>
+                    <td>{{appointment.temp_time}}</td>
+                    <td>{{appointment.appt_time}}</td>
+                    <td>Booked</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="search-doctor" href="{{ url_for('home') }}" style="margin-bottom: 200px;">Go to Home page!</a>
+    </center>
+    </div>
+</div>
+</section>
+{% endblock content %}

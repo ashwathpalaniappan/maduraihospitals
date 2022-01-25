@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section class="search" id="search">
+        <center><img class="search-img" src="{{ url_for('static', filename='images/search.png') }}"></center>
+        <div class="max-width">
+        <div class="search-content">
+          <form action="{{ url_for('search') }}" method="post">
+            <div class="bar">
+                <input class="searchbar" list="browsers" name="browser">
+                  <datalist class="dropbox" id="browsers">
+                    {% for doctor in doctors %}
+                      <option label="Dr. {{doctor.name}} - {{doctor.hospital}}"  value="{{doctor.email}}">
+                    {% endfor %}
+                  </datalist>
+            </div>
+            <br>
+            <center>
+              <input type="submit" value="Visit Doctor" class="search-doctor">
+            </center>
+          </form>
+        </div>
+        </div>
+    </section>
+
+{% endblock content %}

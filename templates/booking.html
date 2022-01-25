@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<section>
+<div class="max-width">
+    <div class="search-content">
+    <center>
+        <img src="{{ url_for('static', filename='images/confirm.png') }}" height="300">
+        <h1>Your Appointment has been booked!</h1>
+        <p>You will be informed once the hospital fixes your appointment time!</p>
+        <a class="search-doctor" href="{{ url_for('home') }}">Go to Home page!</a>
+    </center>
+    </div>
+</div>
+</section>
+{% endblock content %}

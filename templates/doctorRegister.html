@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section class="dregister">
+        <center>
+        <img class="form-img" src="{{ url_for('static', filename='images/avatar.png') }}">
+        <h2 class="dregistertitle">Doctor Registration</h2>
+        {% if msg: %}
+        <p class="notifier-text">{{ msg }}</p>
+        {% endif %}
+        <div style="margin-bottom: 40px;"></div>
+        <div class="max-width">
+            <form class="form-group" action="{{ url_for('doctor_register') }}" method="post">
+                <p>Basic Info:</p><br>
+                <input type="text" class="form-box" name="name" placeholder="Name" required><br>
+                <input type="text" class="form-box" name="email" placeholder="Email" required><br>
+                <input type="text" class="form-box" name="hospital" placeholder="Hospital Name" required><br>
+                <p>Hospital Address:</p><br>
+                <input type="text" class="form-box" name="add1" placeholder="Address Line 1" required><br>
+                <input type="text" class="form-box" name="add2" placeholder="Address Line 2" required><br>
+                <input type="text" class="form-box" name="city" placeholder="City name" required><br>
+                <input type="text" class="form-box" name="pincode" placeholder="Pincode" required><br>
+                <p>Time slots:</p><br>
+                <input type="text" class="form-box" name="time1" placeholder="Slot 1 (Ex: 10:00am-2:00pm)" required><br>
+                <input type="text" class="form-box" name="time2" placeholder="Slot 2 (Ex: 5:00pm-9:00pm)" required><br>
+                <p>Working Days:</p><br>
+                <input type="text" class="form-box" name="startday" placeholder="Starting day (Ex: Monday)" required><br>
+                <input type="text" class="form-box" name="endday" placeholder="Ending day (Ex: Friday)" required><br>
+                <p>Login Credentials:</p><br>
+                <input type="password" class="form-box" name="password" placeholder="Password" required><br>
+                <input type="password" class="form-box" name="cpassword" placeholder="Confirm Password" required><br>
+                <input type="submit" value="Register" class="search-doctor" name="">
+            </form>
+            </center>
+        </div>
+    </section>
+
+{% endblock content %}

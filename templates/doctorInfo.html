@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="about">
+    <div class="max-width">
+    <h1 class="title">Dr. {{account.name}}</h1>
+    <br>
+    <div class="about-content">
+        <div class="column left">
+            <table class="doctorInfo">
+                <tr>
+                    <td>Name:</td>
+                    <td>Dr. {{account.name}}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{account.email}}</td>
+                </tr>
+                <tr>
+                    <td>Hospital:</td>
+                    <td>{{account.hospital}}</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>{{account.add1}}<br>{{account.add2}}<br>{{account.city}}<br>{{account.pincode}}</td>
+                </tr>
+                <tr>
+                    <td>Working Hours:</td>
+                    <td>From {{account.time1}} to {{account.time2}}</td>
+                </tr>
+                <tr>
+                    <td>Working Days:</td>
+                    <td>From {{account.startday}} to {{account.endday}}</td>
+                </tr>
+              </table>
+        </div>
+        <div class="column right">
+            <img src="{{ url_for('static', filename='images/about.png') }}" alt="">
+        </div>
+    </div>
+    </div>
+    <br><br>
+    <center>
+    <img class="form-img" src="{{ url_for('static', filename='images/avatar.png') }}">
+    <h2 class="dregistertitle">Book Appointment</h2>
+    <div class="max-width">
+        <form class="form-group" action="{{ url_for('book') }}" method="post">
+            <input type="text" class="form-box" name="doctor" value="{{account.email}}" style="display: none;"><br>
+            <input type="text" class="form-box" name="patient" placeholder="Name of the Patient" required><br>
+            <input type="text" class="form-box" name="age" placeholder="Age of the Patient" required><br>
+            <input type="text" class="form-box" name="relation" placeholder="Relationship with the Patient" required><br>
+            <input type="text" class="form-box" name="email" placeholder="Your email address" required><br>
+            <input type="date" class="form-box" name="date" placeholder="Date of Appointment" required><br>
+            <input type="time" class="form-box" name="time" placeholder="Time of Appointment" required><br>
+            <p style="font-size: 12px;"><b>Note:</b> Time of Appointment will be confirmed only by the hospital.</p><br>
+            <input type="submit" value="Book Appointment" class="search-doctor" name="">
+        </form>
+        </center>
+    </div>
+</section>
+
+{% endblock content %}
